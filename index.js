@@ -2,6 +2,16 @@ const express = require("express")
 const path = require("path")
 const fs = require("fs")
 const app = express()
+const vids = (function(){
+let videos = ""
+let files = fs.readdirSync("./videos/")
+    
+files.forEach((file) => {
+        videos += "\t'videos/" + file.name + "',\n"
+})
+  
+return videos.substring(0, videos.length - 2)
+})()
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"))
@@ -36,17 +46,10 @@ app.get("/style.css", (req, res) => {
 })
 
 app.get("/video-array.js", (req, res) => {
-    let videos = ""
-    let files = fs.readdirSync("./videos/")
     
-    files.forEach((file) => {
-        videos += "\t'videos/" + file.name + "',\n"
-    })
-  
-    videos = videos.substring(0, videos.length - 2)
     
     res.send(`
-var videoArray = [\n${videos}\n]
+var videoArray = [\n${vids}\n]
 
 export function getArray() {
   return videoArray
