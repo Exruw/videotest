@@ -3,6 +3,11 @@
     "src": "index.js",
     "use": "@now/node-server"
 }],
+"functions": {
+    "index.js": {
+      "includeFiles": "/.*"
+    }
+},
 
 "routes": [{
     "headers": {
