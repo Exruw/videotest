@@ -4,7 +4,7 @@ const fs = require("fs")
 const app = express()
 const vids = (function(){
 let videos = ""
-let files = fs.readdirSync("./videos/")
+let files = fs.readdirSync(path.join(__dirname, "videos"))
     
 files.forEach((file) => {
         videos += "\t'videos/" + file.name + "',\n"
