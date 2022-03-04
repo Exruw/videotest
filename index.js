@@ -7,7 +7,7 @@ let videos = ""
 let files = fs.readdirSync(path.join(__dirname, "videos"))
     
 files.forEach((file) => {
-        videos += "\t'videos/" + file.name + "',\n"
+        videos += "\t'videos/" + file + "',\n"
 })
   
 return videos.substring(0, videos.length - 2)
@@ -46,7 +46,7 @@ app.get("/style.css", (req, res) => {
 })
 
 app.get("/video-array.js", (req, res) => {
-    
+    res.set("content-type", "text/plain")
     
     res.send(`
 var videoArray = [\n${vids}\n]
