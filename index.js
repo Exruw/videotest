@@ -14,8 +14,10 @@ return videos.substring(0, videos.length - 2)
 })()
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"))
+    res.sendFile(path.join(__dirname, "_index.html"))
 })
+
+app.get("/contact", (req, res) => res.sendFile(__dirname, "contact.html"))
 
 // REDIRECTION
 
