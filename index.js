@@ -37,6 +37,10 @@ app.get("/HUBCHICKEN.png", (req, res) => {
     res.sendFile(path.join(__dirname, "/HUBCHICKEN.png"))
 })
 
+app.get("/hubchicken.mp3", (req, res) => {
+    res.sendFile(path.join(__dirname, "/hubchicken.mp3"))
+})
+
 app.get("/icon.svg", (req, res) => {
     res.sendFile(path.join(__dirname, "/icon.svg"))
 })
